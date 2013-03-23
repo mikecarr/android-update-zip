@@ -16,9 +16,11 @@ then
    then
      mkdir $BACKUP_FOLDER
    fi
-   NOW=$(date +"%m-%d-%Y")-$(date +"%T")
+   NOW=$(date +%Y-%m-%d_%H.%M.%S)
    mv $OUT_ZIP_FOLDER/$ZIP_NAME $BACKUP_FOLDER/$FILE_NAME-$NOW.zip
 fi
 
 find . -name ".DS_Store" -exec rm -rf {} \;
+rm -f data/app/APPLICAZIONE.APK
+rm -rf data/data/APPLICAZIONE
 zip -r $OUT_ZIP_FOLDER/$ZIP_NAME data META-INF
